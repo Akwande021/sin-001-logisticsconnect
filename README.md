@@ -31,6 +31,17 @@ for `package-status-topic`: Package status updates move from latency-driven RPC 
 **Status:** scaffold only — build files, Javalin bootstrap, and TODOs are in place; no
 business logic has been implemented yet.
 
+### Implementation order
+For a predictable build, work in this sequence: first clean the CSV in
+`ingestion-service`, then make the REST wiring in `hub-service`,
+`delay-stage-service`, and `transit-service` pass end-to-end, and only then move to
+ActiveMQ decoupling and the optional `alertbot` stretch goal.
+
+### Suggested startup sequence
+When bringing the services online in a local environment, start in this order:
+`ingestion-service` first, then `hub-service`, then `delay-stage-service`, then
+`transit-service`, and only after the broker is running add `alertbot`.
+
 ## Your task
 
 Implement the four stages below, in order — each one builds on the last, and the
