@@ -1,9 +1,5 @@
 package co.wethinkcode.logisticsconnect;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
-import io.javalin.Javalin;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,6 +10,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+
+import io.javalin.Javalin;
 
 public class IngestionServiceApp {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
